@@ -2,7 +2,7 @@
 
 function sendMessage(){
     chat_id=$1
-    text=$2
+    text="$2"
     [ -z "$chat_id" ] && echo "no action" && exit 1
     [ -z "$text" ] && echo "no action" && exit 1
     echo "{\"chat_id\": \"${chat_id}\", \"text\": \"${text}\", \"disable_notification\": true}" 
