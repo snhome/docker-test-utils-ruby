@@ -5,7 +5,7 @@ function sendMessage(){
     text="$2"
     [ -z "$chat_id" ] && echo "no action" && exit 1
     [ -z "$text" ] && echo "no action" && exit 1
-    echo "{\"chat_id\": \"${chat_id}\", \"text\": \"${text}\", \"disable_notification\": true}" 
+    echo "{\"chat_id\": \"${chat_id}\", \"text\": \"${text}\", \"disable_notification\": true}"
     curl -X POST \
         -H 'Content-Type: application/json' \
         -d "{\"chat_id\": \"${chat_id}\", \"text\": \"${text}\", \"disable_notification\": true}" \
@@ -16,4 +16,4 @@ if [ -z ${TELEGRAM_BOT_TOKEN+x} ]; then echo "set TELEGRAM_BOT_TOKEN first" && e
 action=$1
 shift
 [ -z "$action" ] && echo "no action" && exit 1
-$action $@
+$action "$@"
